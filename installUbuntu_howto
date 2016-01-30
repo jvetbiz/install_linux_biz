@@ -118,6 +118,10 @@ sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1
 dans bashrc : 
 export PATH=$PATH:/Apps/android_studio
 
+GITHUB
+
+git init : initialise un dossier comme repository
+
 
 
 
