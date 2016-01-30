@@ -1,0 +1,139 @@
+
+On veut : Dual Boot (cohabitation avec Windows dÃ©jÃ  installÃ©)
+ProblÃ¨me : UEFI, MBR ??
+Si UEFI -> Partitionnement GPT, boot sur LiveUSB ou LiveCD en UEFI. 
+[NON RÃ‰SOLU] -> Windows prends toujours la main dans l'UEFI, il faut passer par F11 au boot pour choisir Ubuntu
+Si MBR -> Partitionnement quelconque ;
+
+On veut : Partitionner pour prÃ©parer l'arrivÃ©e d'Ubuntu/distrib
+ProblÃ¨me : Que faut-il ?
+Si UEFI -> [SE RENSEIGNER OU SE TROUVE LA PARTITION BOOT]
+	une partition /  (format ext4) d'au minimum 8 Go (15 Go est conseillÃ©) si /home sÃ©parÃ©, sinon prÃ©voir ce qu'on veut en consÃ©quence (home + 8-15 Go)
+	une partition /home si on veut la sÃ©parer de / (a volontÃ©)
+	une partition swap d'au moins 2 Go
+Si MBR -> MÃªme chose avec une partition /boot en + (500 Mo (0.5 Go) sont largement suffisant))
+
+On veut : Installer Ubuntu
+ProblÃ¨me : Quoi ? Comment ?
+Il faut : CrÃ©er un LiveDVD/LiveUSB, support d'au moins 2 Go
+	ISO tÃ©lÃ©chargÃ© sur le site : http://www.Ubuntu.com/download/desktop
+Depuis Windows : TÃ©lÃ©charger rufus : https://rufus.akeo.ie/downloads/rufus-2.6.exe
+Depuis Linux : [A FAIRE]
+CrÃ©er le support, booter dessus au dÃ©marrage du PC, et bien choisir UEFI si on choisi ce mode.
+
+Il faut : paramÃ©trer l'installation : 
+
+refaire PAS A PAS
+
+alias : 
+on peut les ajouter a la volÃ©e a la fin du fichier bashrc avec : 
+sudo echo "alias eclipse='~/Apps/eclipse/java-mars/eclipse/eclipse'" >> ~/.bashrc
+
+
+----------------------------------------------------
+# ALIAS
+
+#edit bashrc
+alias bashedit='sudo gedit ~/.bashrc'
+
+#apt install et search
+alias prends='sudo apt-get install'
+alias cherche='sudo apt-cache search'
+
+#mise a jour du systeme
+alias bizupdt='sudo apt-get update'
+alias bizupgrd='sudo apt-get upgrade'
+alias bizupdist='sudo apt-get dist-upgrade'
+alias bizmaj='bizupdt && bizupgrd && bizupdist'
+
+#wine
+alias npp='wine ~/Apps/Notepad++6.8.8/notepad++.exe'
+
+#PATH ENVIRONMENT VARIABLE
+export PATH=$PATH:/Apps/android_studio
+----------------------------------------------------
+
+
+CrÃ©er dossier : 
+Logiciel installÃ© : 
+mkdir ~/Apps 
+Espace de travail programmation :
+mkdir ~/Documents/Prog
+
+APPS LINUX :
+
+Teamviewer : download.teamviewer.com/download/teamviewer_i386.deb
+Clique droit -> Lancer dans LogithÃ¨que Ubuntu --> Installer
+Lancer teamviewer
+[ A PARAMETRER - Ajouter ordinateur]
+
+java :
+ajouter repository : 
+sudo apt-add-repository ppa:webupd8team/java
+sudo apt-get update
+Installer
+sudo apt-get install oracle-javaX-installer               (X = version java)
+
+
+
+-----
+
+DEV
+---
+
+JAVA : 
+Eclipse : https://www.eclipse.org/downloads/download.php?file=/oomph/epp/mars/R1a/eclipse-inst-linux64.tar.gz&mirror_id=63
+Extraction : 
+tar -xvf eclipse-inst-linux64.tar.gz
+Installation :
+~/TÃ©lÃ©chargements/eclipse-installer/eclipse-inst
+
+[CONFIG A FAIRE]
+
+UML SYSML 
+Papyrus  :
+https://www.eclipse.org/downloads/download.php?file=/modeling/mdt/papyrus/rcp/mars/1.1.3/papyrus-mars-1.1.3-linux64.tar.gz&mirror_id=63
+tar -zxvf papyrus-mars-1.1.3-linux64.tar.gz -C ~/Apps/
+
+[CONFIG A FAIRE]
+QT Creator : 
+download.qt.io/official_releases/online_installers/qt-unified-linux-x64-online.run
+chmod +x ~/TÃ©lÃ©chargements/qt-unified-linux-x64-2.0.2-2-online.run
+Clique droit -> Lancer
+~/TÃ©lÃ©chargements/qt-unified-linux-x64-2.0.2-2-online.run
+(??COMMANDE??)
+[A CONFIGURER]
+
+ANDROID STUDIO 
+
+https://dl.google.com/dl/android/studio/ide-zips/1.5.1.0/android-studio-ide-141.2456560-linux.zip
+
+unzip ~/TÃ©lÃ©chargements/android-studio-ide-141.2456560-linux.zip -d ~/Apps/
+
+[mkscard problem]
+sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1
+
+
+[VOIR ENVIRONMENT VARIABLE $PATH]
+dans bashrc : 
+export PATH=$PATH:/Apps/android_studio
+
+GITHUB
+
+git init : initialise un dossier comme repository
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
